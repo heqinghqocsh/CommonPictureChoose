@@ -52,8 +52,7 @@ public class CommonPictureChooseViewAdapter
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         ImageView imageView = new ImageView(mContext);
         imageView.setAdjustViewBounds(true);
-        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        imageView.setPadding(10, 10, 10, 10);
+        imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         ViewHolder viewHolder = new ViewHolder(imageView, this);
         return viewHolder;
     }

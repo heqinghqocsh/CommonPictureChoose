@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.provider.MediaStore;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.Gravity;
@@ -58,11 +59,12 @@ public class CommonPictureChooseView extends RecyclerView
     private void init(Context context){
         mContext = context;
         mGridLayoutManager = new GridLayoutManager(getContext(),3);
-        setLayoutManager(mGridLayoutManager);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext,HORIZONTAL,false);
+        addItemDecoration(new SpaceItemDecoration(mContext, 4));
+        setLayoutManager(linearLayoutManager);
         mAdapter = new CommonPictureChooseViewAdapter(getContext(),mPathList);
         mAdapter.setOnItemClickListener(this);
         setAdapter(mAdapter);
-
     }
 
     @Override
@@ -77,7 +79,11 @@ public class CommonPictureChooseView extends RecyclerView
                     , Gravity.CENTER, 0, 0);
             setBackGroundAlpha(0.5f);
         }else{
-            removeItemAtIndex(4);
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            Uri uri = Uri.parse(mPathList.get(position));
+            intent.setDataAndType(uri,"image/*");
+            mContext.startActivity(intent);
+//            removeItemAtIndex(4);
         }
     }
 
@@ -183,6 +189,9 @@ public class CommonPictureChooseView extends RecyclerView
         ((Activity)mContext).getWindow().setAttributes(layoutParams);
     }
 
+    /**
+     * 压缩文件任务，对图片进行压缩保存到SD卡
+     */
     private class CompressTask extends AsyncTask<String, Void, String> {
         @Override
         protected String doInBackground(String... params) {

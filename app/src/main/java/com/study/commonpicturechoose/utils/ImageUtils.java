@@ -120,7 +120,7 @@ public final class ImageUtils {
         BufferedOutputStream outputStream = null;
         try {
             outputStream = new BufferedOutputStream(new FileOutputStream(file));
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 70, outputStream);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 60, outputStream);
             outputStream.flush();
         } finally {
             if (outputStream != null){
