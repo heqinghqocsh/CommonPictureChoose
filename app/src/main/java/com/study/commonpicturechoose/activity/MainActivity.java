@@ -17,14 +17,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mPictureChooseView = (CommonPictureChooseView) findViewById(R.id.common_picture_choose);
         mPictureChooseView.setOnlyShowImg(false);
-//        mPictureChooseView.addImgPath("http://192.168.191.1:8080/PictureUrlData/picture/1.jpg");
-//        mPictureChooseView.addImgPath("http://192.168.191.1:8080/PictureUrlData/picture/2.jpg");
-//        mPictureChooseView.addImgPath("http://192.168.191.1:8080/PictureUrlData/picture/3.jpg");
-//        mPictureChooseView.addImgPath("http://192.168.191.1:8080/PictureUrlData/picture/4.jpg");
-//        mPictureChooseView.addImgPath("http://192.168.191.1:8080/PictureUrlData/picture/4.jpg");
-//        mPictureChooseView.addImgPath("http://192.168.191.1:8080/PictureUrlData/picture/4.jpg");
-//        mPictureChooseView.addImgPath("http://192.168.191.1:8080/PictureUrlData/picture/333.jpg");
-
     }
 
     @Override

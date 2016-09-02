@@ -8,7 +8,6 @@
     <com.study.commonpicturechoose.widget.CommonPictureChooseView
         android:padding="5dp"
         android:id="@+id/common_picture_choose"
-        android:layout_gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="200dp" />
+        android:layout_height="100dp" />
 </LinearLayout>

@@ -38,7 +38,6 @@ public class CommonPictureChooseView extends RecyclerView
     public static final int CHOOSE_FROM_CAMERA = 0XFF02;
     private String PICTURE_FILE_SUFFIX = ".jpg";
 
-    private GridLayoutManager mGridLayoutManager;
     private ArrayList<String> mPathList = new ArrayList<>();
     private CommonPictureChooseViewAdapter mAdapter;
 
@@ -58,10 +57,10 @@ public class CommonPictureChooseView extends RecyclerView
 
     private void init(Context context){
         mContext = context;
-        mGridLayoutManager = new GridLayoutManager(getContext(),3);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext,HORIZONTAL,false);
         addItemDecoration(new SpaceItemDecoration(mContext, 4));
         setLayoutManager(linearLayoutManager);
+
         mAdapter = new CommonPictureChooseViewAdapter(getContext(),mPathList);
         mAdapter.setOnItemClickListener(this);
         setAdapter(mAdapter);
@@ -83,7 +82,6 @@ public class CommonPictureChooseView extends RecyclerView
             Uri uri = Uri.parse(mPathList.get(position));
             intent.setDataAndType(uri,"image/*");
             mContext.startActivity(intent);
-//            removeItemAtIndex(4);
         }
     }
 
@@ -127,6 +125,7 @@ public class CommonPictureChooseView extends RecyclerView
     @Override
     public void chooseCancel() {
         mChooseImgPopupWindow.dismiss();
+        addImgPath("http://192.168.191.1:8080/PictureUrlData/picture/1.jpg");
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data){

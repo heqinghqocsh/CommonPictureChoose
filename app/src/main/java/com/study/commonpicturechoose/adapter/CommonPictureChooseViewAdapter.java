@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Created on 2016/9/1.
  *
- * @description
+ * @description 适配器类
  */
 public class CommonPictureChooseViewAdapter
         extends RecyclerView.Adapter<CommonPictureChooseViewAdapter.ViewHolder> {
@@ -52,7 +52,7 @@ public class CommonPictureChooseViewAdapter
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         ImageView imageView = new ImageView(mContext);
         imageView.setAdjustViewBounds(true);
-        imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         ViewHolder viewHolder = new ViewHolder(imageView, this);
         return viewHolder;
     }
