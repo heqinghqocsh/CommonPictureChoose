@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">CommonPictureChoose</string>
+
+    <string name="choose_form_album_text">相册选取</string>
+    <string name="choose_form_camera_text">相机拍照</string>
+    <string name="cancel">取消</string>
+    <string name="delete">删除</string>
 </resources>
